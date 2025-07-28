@@ -1,17 +1,22 @@
 pipeline {
   agent any
 
-    stage('Build') {
+  stages {
+    stage('Clone') {
       steps {
-        echo 'Building the project...'
-        sh 'echo Hello World'
+        git url: 'https://github.com/dariyaamruth/playwright_automation.git'
+      }
+    }
+
+    stage('Install') {
+      steps {
+        sh 'npm ci'
       }
     }
 
     stage('Test') {
       steps {
-        echo 'Running tests...'
-        sh 'echo Run your tests here'
+        sh 'npx playwright test'
       }
     }
   }
