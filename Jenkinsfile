@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git url: 'https://github.com/dariyaamruth/playwright_automation.git'
+        // git url: 'https://github.com/dariyaamruth/playwright_automation.git'
       }
     }
 
