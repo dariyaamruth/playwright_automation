@@ -1,8 +1,10 @@
 pipeline {
   agent any
-tools {
-  nodejs 'Node18'  // Or whatever name you used
-       }
+
+  tools {
+    nodejs 'Node18'  // Or whatever name you used
+  }
+  
   stages {
     stage('Clone') {
       steps {
