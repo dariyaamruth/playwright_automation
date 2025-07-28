@@ -23,7 +23,7 @@ pipeline {
         sh 'npm install'
         echo 'Installing dependencies...'
         // Ensure Playwright is installed
-        sh 'npx playwright install-deps'
+        sh 'sudo -S npx playwright install-deps'
         echo 'Installing Playwright dependencies...'
         // Install Node.js dependencies
         sh 'npm ci'
