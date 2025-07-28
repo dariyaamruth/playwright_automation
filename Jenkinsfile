@@ -12,27 +12,28 @@ pipeline {
       }
     }
 
-    stage('Install') {
-      steps {
-        script {
-          def nodeHome = tool name: 'Node23', type: 'hudson.plugins.nodejs.tools.NodeJSInstallation'
-          env.PATH = "${nodeHome}/bin:${env.PATH}"
-        }
-        sh 'npm install'
-        echo 'Installing dependencies...'
-        // Ensure Playwright is installed
-        sh 'npx playwright install-deps'
-        echo 'Installing Playwright dependencies...'
-        // Install Node.js dependencies
-        sh 'npm ci'
-        sh 'npx playwright install'
-        echo 'Dependencies installed.'
-      }
-    }
+    // stage('Install') {
+    //   steps {
+    //     script {
+    //       def nodeHome = tool name: 'Node23', type: 'hudson.plugins.nodejs.tools.NodeJSInstallation'
+    //       env.PATH = "${nodeHome}/bin:${env.PATH}"
+    //     }
+    //     sh 'npm install'
+    //     echo 'Installing dependencies...'
+    //     // Ensure Playwright is installed
+    //     sh 'npx playwright install-deps'
+    //     echo 'Installing Playwright dependencies...'
+    //     // Install Node.js dependencies
+    //     sh 'npm ci'
+    //     sh 'npx playwright install'
+    //     echo 'Dependencies installed.'
+    //   }
+    // }
 
     stage('Test') {
       steps {
-        sh 'npx playwright test'
+        sh 'pytest --maxfail=1 --disable-warnings -q'
+        echo 'Running tests...'
       }
     }
   }
