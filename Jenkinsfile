@@ -15,7 +15,7 @@ pipeline {
     stage('Install') {
       steps {
         script {
-          def nodeHome = tool name: 'Node18', type: 'hudson.plugins.nodejs.tools.NodeJSInstallation'
+          def nodeHome = tool name: 'Node23', type: 'hudson.plugins.nodejs.tools.NodeJSInstallation'
           env.PATH = "${nodeHome}/bin:${env.PATH}"
         }
         sh 'npm install'
@@ -29,7 +29,7 @@ pipeline {
         echo 'Dependencies installed.'
       }
     }
-    
+
     stage('Test') {
       steps {
         sh 'npx playwright test'
