@@ -12,7 +12,10 @@ pipeline {
 
     stage('Install') {
       steps {
+        sh
         sh 'npm ci'
+        sh 'npx playwright install'
+        echo 'Dependencies installed.'
       }
     }
 
