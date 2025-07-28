@@ -1,9 +1,7 @@
 pipeline {
   agent any
 
-  tools {
-    nodejs 'Node18'  // Or whatever name you used
-  }
+  // NodeJS tool configuration is not supported here; use the 'tool' step in the pipeline steps instead.
   
   stages {
     stage('Clone') {
@@ -16,6 +14,12 @@ pipeline {
 
     stage('Install') {
       steps {
+    stage('Install') {
+      steps {
+        script {
+          def nodeHome = tool name: 'Node18', type: 'hudson.plugins.nodejs.tools.NodeJSInstallation'
+          env.PATH = "${nodeHome}/bin:${env.PATH}"
+        }
         sh 'npm install'
         echo 'Installing dependencies...'
         // Ensure Playwright is installed
@@ -27,8 +31,6 @@ pipeline {
         echo 'Dependencies installed.'
       }
     }
-
-    stage('Test') {
       steps {
         sh 'npx playwright test'
       }
