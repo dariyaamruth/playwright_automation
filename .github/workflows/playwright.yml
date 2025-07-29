@@ -30,6 +30,6 @@ jobs:
           playwright install-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --trace=retain-on-failure
+        run: pytest --tracing=retain-on-failure
 
 
