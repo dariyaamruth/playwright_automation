@@ -21,7 +21,7 @@ pipeline {
         sh 'pip install pytest pytest-playwright'
         sh 'pip install playwright'
         sh 'python3.10 -m playwright install'
-        // sh 'python3.10 -m playwright install --with-deps'
+        sh 'python3.10 -m playwright install --with-deps'
      }
     }
 
