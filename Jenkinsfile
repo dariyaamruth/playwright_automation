@@ -27,7 +27,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'pytest --tracing=retain-on-failure
+        sh 'pytest --tracing=retain-on-failure'
       }
     }
   }
