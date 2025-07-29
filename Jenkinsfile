@@ -20,7 +20,7 @@ pipeline {
         sh 'pip install --upgrade pip'
         sh 'pip install pytest pytest-playwright'
         sh 'pip install playwright'
-        sh 'python -m playwright install'
+        sh 'python3.10 -m playwright install'
         sh 'playwright install-deps'
         // Ensure that the Playwright browsers are installed
         sh 'playwright install chromium firefox webkit'
