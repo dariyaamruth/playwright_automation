@@ -23,14 +23,15 @@ pipeline {
         sh 'pip install pytest-html'
         sh 'pip install pytest-playwright'
         sh 'pip install playwright'
-        sh 'python3.10 -m playwright install'
+        // sh 'python3.10 -m playwright install'
         // sh 'python3.10 -m playwright install --with-deps'
+        sh 'pytest --tracing=retain-on-failure'
      }
     }
 
     stage('Test') {
       steps {
-        sh 'pytest --tracing=retain-on-failure'
+        // sh 'pytest --tracing=retain-on-failure'
       }
     }
   }
