@@ -21,14 +21,13 @@ pipeline {
         sh 'pip install pytest pytest-playwright'
         sh 'pip install playwright'
         sh 'python3.10 -m playwright install'
-        sh 'python3.10 -m playwright install --with-deps'
-        sh 'pytest --tracing=retain-on-failure'
-      }
+        // sh 'python3.10 -m playwright install --with-deps'
+     }
     }
 
     stage('Test') {
       steps {
-        sh 'npx playwright test'
+        sh 'pytest --tracing=retain-on-failure --tracing-dir=./traces --tracing-screenshots=on --tracing-videos=on'
       }
     }
   }
