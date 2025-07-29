@@ -3,7 +3,7 @@ pipeline {
 
   // NodeJS tool configuration is not supported here; use the 'tool' step in the pipeline steps instead.
   tools {
-    nodejs 'Node22' // Ensure this matches the Node.js version installed on your Jenkins
+    nodejs 'Node23' // Ensure this matches the Node.js version installed on your Jenkins
   }
   stages {
     stage('Clone') {
