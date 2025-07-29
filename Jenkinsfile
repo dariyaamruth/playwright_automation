@@ -27,7 +27,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'pytest --tracing=retain-on-failure --tracing-dir=./traces --tracing-screenshots=on --tracing-videos=on'
+        sh 'pytest --tracing=retain-on-failure
       }
     }
   }
