@@ -28,11 +28,5 @@ pipeline {
         sh 'pytest --tracing=retain-on-failure'
      }
     }
-
-    stage('Test') {
-      steps {
-        // sh 'pytest --tracing=retain-on-failure'
-      }
-    }
-  }
+   }
 }
