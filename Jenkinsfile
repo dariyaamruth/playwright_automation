@@ -21,11 +21,7 @@ pipeline {
         sh 'pip install pytest pytest-playwright'
         sh 'pip install playwright'
         sh 'python3.10 -m playwright install'
-        // sh 'playwright install-deps'
-        // Ensure that the Playwright browsers are installed
-        sh 'playwright install chromium firefox webkit'
-        // Install Node.js dependencies
-        sh 'npm ci'
+        sh 'python3.10 -m playwright install --with-deps'
         sh 'pytest --tracing=retain-on-failure'
       }
     }
