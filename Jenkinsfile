@@ -18,7 +18,10 @@ pipeline {
       steps {
         sh 'npm install'
         sh 'pip install --upgrade pip'
-        sh 'pip install pytest pytest-playwright'
+        sh 'pip install pytest'
+        sh 'pip install pytest-xdist'
+        sh 'pip install pytest-html'
+        sh 'pip install pytest-playwright'
         sh 'pip install playwright'
         sh 'python3.10 -m playwright install'
         // sh 'python3.10 -m playwright install --with-deps'
